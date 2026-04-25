@@ -1,0 +1,6 @@
+{
+  "name": "Fluent CMS",
+  "description": "A database-free, flat-file CMS with Twitter-inspired DIM theme and Fluent design. Create articles as markdown files with support for categories, emojis, and streaming embeds.",
+  "requestFramePermissions": [],
+  "majorCapabilities": []
+}

@@ -1,0 +1,196 @@
+@import "tailwindcss";
+
+@theme {
+  --color-dim-bg: #15202b;
+  --color-dim-card: #192734;
+  --color-dim-border: #38444d;
+  --color-dim-text: #ffffff;
+  --color-dim-muted: #8b98a5;
+  --color-twitter-blue: #1d9bf0;
+
+  --radius-fluent: 12px;
+  --font-sans: "Inter", system-ui, sans-serif;
+
+  --mask-hexagon: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Cpath d='M50 0 L93.3 25 L93.3 75 L50 100 L6.7 75 L6.7 25 Z'/%3E%3C/svg%3E");
+}
+
+@utility mask-hexagon {
+  mask-image: var(--mask-hexagon);
+  mask-size: contain;
+  mask-repeat: no-repeat;
+  mask-position: center;
+  -webkit-mask-image: var(--mask-hexagon);
+  -webkit-mask-size: contain;
+  -webkit-mask-repeat: no-repeat;
+  -webkit-mask-position: center;
+}
+
+:root.light {
+  --color-dim-bg: #ffffff;
+  --color-dim-card: #f7f9f9;
+  --color-dim-border: #eff3f4;
+  --color-dim-text: #0f1419;
+  --color-dim-muted: #536471;
+}
+
+:root.dark {
+  --color-dim-bg: #000000;
+  --color-dim-card: #16181c;
+  --color-dim-border: #2f3336;
+  --color-dim-text: #e7e9ea;
+  --color-dim-muted: #71767b;
+}
+
+@layer base {
+  body {
+    @apply transition-colors duration-300;
+    background-color: var(--color-dim-bg);
+    color: var(--color-dim-text);
+    font-family: var(--font-global, inherit);
+    font-size: var(--size-global, inherit);
+    font-weight: var(--weight-global, inherit);
+  }
+
+  /* Menu Typography */
+  nav, .sidebar-link, .menu-item {
+    font-family: var(--font-menu) !important;
+    font-size: var(--size-menu) !important;
+    color: var(--color-menu) !important;
+    font-weight: var(--weight-menu) !important;
+  }
+
+  /* Article Typography */
+  .article-card-title, .article-title {
+    font-family: var(--font-articleTitle) !important;
+    font-size: var(--size-articleTitle) !important;
+    color: var(--color-articleTitle) !important;
+    font-weight: var(--weight-articleTitle) !important;
+  }
+
+  .article-content, .ck-content, .article-body {
+    font-family: var(--font-articleBody) !important;
+    font-size: var(--size-articleBody) !important;
+    color: var(--color-articleBody) !important;
+    font-weight: var(--weight-articleBody) !important;
+  }
+
+  /* Profile Identity Typo */
+  .profile-name {
+    font-family: var(--font-profileName) !important;
+    font-size: var(--size-profileName) !important;
+    font-weight: var(--weight-profileName, 900) !important;
+  }
+  .profile-handle {
+    font-family: var(--font-profileHandle) !important;
+    font-size: var(--size-profileHandle) !important;
+    font-weight: var(--weight-profileHandle, 400) !important;
+  }
+  .profile-bio {
+    font-family: var(--font-profileBio) !important;
+    font-size: var(--size-profileBio) !important;
+    font-weight: var(--weight-profileBio, 400) !important;
+  }
+}
+
+:root {
+  --app-bg: var(--color-dim-bg);
+  --app-card: var(--color-dim-card);
+  --app-border: var(--color-dim-border);
+  --app-text: var(--color-dim-text);
+  --app-muted: var(--color-dim-muted);
+  --app-accent: var(--color-twitter-blue);
+}
+
+.custom-theme {
+  --color-dim-bg: var(--custom-bg);
+  --color-dim-card: var(--custom-card);
+  --color-dim-border: var(--custom-border);
+  --color-dim-text: var(--custom-text);
+  --color-dim-muted: var(--custom-muted);
+  --color-twitter-blue: var(--custom-accent);
+}
+
+.fluent-glass {
+  @apply backdrop-blur-md bg-white/10 border border-white/20;
+}
+
+
+.dim-glass {
+  @apply backdrop-blur-md bg-dim-card/80 border border-dim-border;
+}
+
+/* CKEditor 5 Theme Overrides */
+:root {
+  --ck-color-base-border: var(--color-dim-border);
+  --ck-color-base-background: var(--color-dim-card);
+  --ck-color-toolbar-background: var(--color-dim-card);
+  --ck-color-toolbar-border: var(--color-dim-border);
+  --ck-color-text: var(--color-dim-text);
+  --ck-color-button-default-hover-background: rgba(255, 255, 255, 0.05);
+  --ck-color-button-on-background: var(--color-twitter-blue);
+  --ck-color-button-on-color: #ffffff;
+  --ck-border-radius: 12px;
+  --ck-inner-shadow: none;
+  --ck-color-input-background: var(--color-dim-bg);
+  --ck-color-input-border: var(--color-dim-border);
+  --ck-color-input-text: var(--color-dim-text);
+  --ck-color-list-background: var(--color-dim-card);
+}
+
+.ck.ck-editor__main>.ck-editor__editable {
+  background: transparent !important;
+  border-color: var(--color-dim-border) !important;
+  color: var(--color-dim-text) !important;
+  box-shadow: none !important;
+  min-height: 500px;
+  padding: 2rem !important;
+  font-family: inherit;
+}
+
+.ck.ck-editor__top .ck-sticky-panel .ck-toolbar {
+  border-radius: 20px 20px 0 0 !important;
+  background: var(--color-dim-card) !important;
+  border-color: var(--color-dim-border) !important;
+}
+
+.ck-content {
+  color: var(--color-dim-text) !important;
+}
+
+.ck-content p, .ck-content li, .ck-content span {
+  color: var(--color-dim-text) !important;
+}
+
+.ck-content pre {
+  background-color: var(--color-dim-bg) !important;
+  border: 1px solid var(--color-dim-border) !important;
+  color: var(--color-twitter-blue) !important;
+}
+
+.ck-content .video-container, 
+.ck-content figure.media {
+  margin: 2.5rem 0 !important;
+  width: 100%;
+}
+
+.ck-content figure.media div[data-oembed-url] {
+  width: 100%;
+}
+
+.ck.ck-button:not(.ck-disabled):hover, a.ck.ck-button:not(.ck-disabled):hover {
+  background: rgba(29, 155, 240, 0.1) !important;
+}
+::-webkit-scrollbar {
+  width: 6px;
+}
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+::-webkit-scrollbar-thumb {
+  background: rgba(139, 152, 165, 0.2);
+  border-radius: 10px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: rgba(139, 152, 165, 0.4);
+}
+
